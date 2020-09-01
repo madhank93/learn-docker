@@ -2,7 +2,7 @@
 
 ## History
 
-![history](\img\history.png)
+![history](/img/history.png)
 
 ## What is docker
 
@@ -10,7 +10,7 @@
 
 ## Why do you need docker
 
-![compatibility_dependency_issue](\img\compatibility_dependency_issue.jpg)
+![compatibility_dependency_issue](/img/compatibility_dependency_issue.jpg)
 
 * To avoid compatibility issues with an underlying OS or between the services & libraries dependencies with the OS. (So no more - It works on my machine!)
 
@@ -22,7 +22,7 @@
 
 ## What can docker do
 
-![docker_ability](\img\docker_ability.jpg)
+![docker_ability](/img/docker_ability.jpg)
 
 * Containerize an applications
 
@@ -45,7 +45,7 @@ An **image** is a package or a template, it is used to create one or more contai
 
 ## How does docker works
 
-![docker-engine](\img\docker-engine-components-flow.png)
+![docker-engine](/img/docker-engine-components-flow.png)
 
 Docker Engine is a client-server application with these major components:
 
@@ -85,13 +85,15 @@ New way - docker container run
 Old way - docker run
 ```
 
-## Check your docker version
+## Creating and using containers
+
+### Check your docker version
 
 ```docker
 docker version
 ```
 
-## Check your docker info (shows most config values of the engine)
+### Check your docker info (shows most config values of the engine)
 
 ```docker
 docker info
