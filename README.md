@@ -87,17 +87,148 @@ Old way - docker run
 
 ## Creating and using containers
 
-### Check your docker version
+* To check your docker version
 
 ```docker
 docker version
 ```
 
-### Check your docker info (shows most config values of the engine)
+* To check your docker info (shows most config values of the engine)
 
 ```docker
 docker info
 ```
+
+### Running a Nginx server
+
+* To run a docker container in a foreground
+
+```docker
+docker container run --publish 4000:80 nginx
+```
+
+#### On execution
+
+``` text
+* Looks for that image locally in image cache, does not find anything
+* Then looks for the image in remote repository (default - docker hub)
+* Downloads the latest version by default
+* Creates a container based on that image
+* Opened port 4000 port on the host IP
+* Routes that traffic to container IP, port 80
+```
+
+---
+
+* To start a docker container
+
+```docker
+docker container start container-name/id
+```
+
+---
+
+```text
+run vs start
+
+- run -> always starts a *new* container
+
+- start -> starts an existing stopped one
+
+```
+
+---
+
+* To list a running docker container
+
+```docker
+docker container ls
+```
+
+```docker
+docker container ps
+```
+
+```text
+ps and ls both does the same thing, ls command introduced later
+```
+
+---
+
+* To list all of the docker container
+
+```docker
+docker container ls -a
+```
+
+```text
+-a lists out all of the containers
+```
+
+---
+
+* To stop a docker container
+
+```docker
+docker container stop container-name/id
+```
+
+---
+
+* To run a docker container in a background
+
+```docker
+docker container run --publish 4000:80 -- detach nginx
+```
+
+``` text
+* --detach runs the container in background mode
+```
+
+---
+
+* To give docker container a name
+
+```docker
+docker container run --publish 4000:80 -- detach --name webserver nginx
+```
+
+``` text
+* --name gives the container a name
+```
+
+---
+
+* To see the logs (if you run the container in background and want to see the logs)
+
+```docker
+docker container logs container-name/id
+```
+
+---
+
+* To remove the container
+
+```docker
+docker container rm container-name/id
+```
+
+* To force remove the container(even if it is running)
+
+```docker
+docker container rm -f container-name/id
+```
+
+```text
+
+* -f force removes the container
+```
+
+```text
+Note : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
+```
+
+---
 
 ## Resources
 
