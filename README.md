@@ -107,16 +107,15 @@ docker info
 docker container run --publish 4000:80 nginx
 ```
 
-#### On execution
+On execution
 
-``` text
 * Looks for that image locally in image cache, does not find anything
 * Then looks for the image in remote repository (default - docker hub)
 * Downloads the latest version by default
 * Creates a container based on that image
 * Opened port 4000 port on the host IP
 * Routes that traffic to container IP, port 80
-```
+* Go to localhost:4000 in the browser to see the nginx up and running
 
 ---
 
@@ -126,16 +125,11 @@ docker container run --publish 4000:80 nginx
 docker container start container-name/id
 ```
 
----
+#### run vs start
 
-```text
-run vs start
+`run` always starts a *new* container
 
-- run -> always starts a *new* container
-
-- start -> starts an existing stopped one
-
-```
+`start` starts an existing stopped one
 
 ---
 
@@ -149,9 +143,7 @@ docker container ls
 docker container ps
 ```
 
-```text
-ps and ls both does the same thing, ls command introduced later
-```
+`ps` and `ls` both does the same thing, where as `ls` command introduced later
 
 ---
 
@@ -161,9 +153,7 @@ ps and ls both does the same thing, ls command introduced later
 docker container ls -a
 ```
 
-```text
--a lists out all of the containers
-```
+`-a` lists out all of the containers
 
 ---
 
@@ -181,9 +171,7 @@ docker container stop container-name/id
 docker container run --publish 4000:80 -- detach nginx
 ```
 
-``` text
-* --detach runs the container in background mode
-```
+`--detach` runs the container in background mode
 
 ---
 
@@ -193,9 +181,7 @@ docker container run --publish 4000:80 -- detach nginx
 docker container run --publish 4000:80 -- detach --name webserver nginx
 ```
 
-``` text
-* --name gives the container a name
-```
+`--name` gives the container a name
 
 ---
 
@@ -219,14 +205,9 @@ docker container rm container-name/id
 docker container rm -f container-name/id
 ```
 
-```text
+`-f` force removes the container
 
-* -f force removes the container
-```
-
-```text
 Note : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
-```
 
 ---
 
