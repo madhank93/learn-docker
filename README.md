@@ -117,6 +117,8 @@ On execution
 * Routes that traffic to container IP, port 80
 * Go to localhost:4000 in the browser to see the nginx up and running
 
+`--publish` or `-p` to map a host port to a running container port
+
 ---
 
 * To start a docker container
@@ -168,10 +170,14 @@ docker container stop container-name/id
 * To run a docker container in a background
 
 ```docker
-docker container run --publish 4000:80 -- detach nginx
+docker container run --publish 4000:80 --detach nginx
 ```
 
-`--detach` runs the container in background mode
+```docker
+docker container run --publish 4000:80 -d nginx
+```
+
+`--detach` or `-d` runs the container in background mode
 
 ---
 
@@ -208,6 +214,14 @@ docker container rm -f container-name/id
 `-f` force removes the container
 
 Note : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
+
+---
+
+* To list running process in specific container
+
+```docker
+docker top container-name/id
+```
 
 ---
 
