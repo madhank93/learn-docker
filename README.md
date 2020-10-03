@@ -148,8 +148,8 @@ docker container ps
 Output of the above command has the container ID and container name
 
 ```text
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS       PORTS                NAMES
-85861b9fdf01        nginx               "/docker-entrypoint.…"   12 seconds ago      Up 10 seconds       0.0.0.0:80->80/tcp   server
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                   PORTS                NAMES
+85861b9fdf01        nginx               "/docker-entrypoint.…"   12 seconds ago      Up 10 seconds       0.0.0.0:80->80/tcp        server
 ```
 
 `ps` and `ls` both does the same thing, where as `ls` command introduced later (newer version)
