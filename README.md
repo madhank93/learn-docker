@@ -119,6 +119,8 @@ On execution
 
 `--publish` or `-p` to map a host port to a running container port
 
+Note: publish port format HOST:CONTAINER
+
 ---
 
 * To start a docker container
@@ -277,6 +279,22 @@ docker container stats container_name_or_id // performance stats for all contain
   ```docker
   docker container exec -it container_name_or_id bash
   ```
+
+---
+
+* Docker network concepts
+
+```docker
+docker container port container_name_or_id
+```
+
+`port` exposes the which ports are forwarding traffic to that container from the host
+
+```docker
+docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_name_or_id
+```
+
+`--format` formats the output
 
 ## Resources
 
