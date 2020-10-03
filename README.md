@@ -124,7 +124,7 @@ On execution
 * To start a docker container
 
 ```docker
-docker container start container_name_or_id
+docker container start nginx
 ```
 
 #### run vs start
@@ -143,6 +143,13 @@ docker container ls
 
 ```docker
 docker container ps
+```
+
+Output of the above command has the container ID and container name
+
+```text
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS       PORTS                NAMES
+85861b9fdf01        nginx               "/docker-entrypoint.…"   12 seconds ago      Up 10 seconds       0.0.0.0:80->80/tcp   server
 ```
 
 `ps` and `ls` both does the same thing, where as `ls` command introduced later (newer version)
@@ -250,6 +257,26 @@ docker container stats container_name_or_id // performance stats for all contain
 ```
 
 ---
+
+* Getting a Shell inside a container
+
+1. Getting a shell inside a new container (starts new container interactively)
+
+  ```docker
+  docker container run -it --name proxy nginx bash
+  ```
+
+  `i` interactive (keeping session open to receive input)
+
+  `t` pseudo-tty (simulates a real terminal)
+
+  `bash` run with `-it` to give a running terminal inside the container
+
+2. Getting a shell inside a existing container (run additional command in existing container)
+
+  ```docker
+  docker container exec -it container_name_or_id bash
+  ```
 
 ## Resources
 
