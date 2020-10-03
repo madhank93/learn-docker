@@ -124,7 +124,7 @@ On execution
 * To start a docker container
 
 ```docker
-docker container start container-name/id
+docker container start container_name_or_id
 ```
 
 #### run vs start
@@ -145,7 +145,7 @@ docker container ls
 docker container ps
 ```
 
-`ps` and `ls` both does the same thing, where as `ls` command introduced later
+`ps` and `ls` both does the same thing, where as `ls` command introduced later (newer version)
 
 ---
 
@@ -162,7 +162,7 @@ docker container ls -a
 * To stop a docker container
 
 ```docker
-docker container stop container-name/id
+docker container stop container_name_or_id
 ```
 
 ---
@@ -194,7 +194,7 @@ docker container run --publish 4000:80 -- detach --name webserver nginx
 * To see the logs (if you run the container in background and want to see the logs)
 
 ```docker
-docker container logs container-name/id
+docker container logs container_name_or_id
 ```
 
 ---
@@ -202,25 +202,51 @@ docker container logs container-name/id
 * To remove the container
 
 ```docker
-docker container rm container-name/id
+docker container rm container_name_or_id
 ```
 
 * To force remove the container(even if it is running)
 
 ```docker
-docker container rm -f container-name/id
+docker container rm -f container_name_or_id
 ```
 
 `-f` force removes the container
 
-Note : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
+*Note* : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
 
 ---
 
 * To list running process in specific container
 
 ```docker
-docker top container-name/id
+docker top container_name_or_id
+```
+
+---
+
+* Assignment: Manage multiple containers
+
+```docker
+docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
+
+docker container logs db // to get the generated random password from the log
+
+docker container run -d --name server -p 8080:80 httpd
+
+docker container run -d --name proxy -p 80:80 nginx
+```
+
+*Note* : Just because the containers(httpd, and nginx) are both listening on port 80 inside (the right number), there is no conflict because on the host they are published on 80, and 8080 separately (the left number).
+
+---
+
+* Docker CLI Process monitoring
+
+```docker
+docker container top container_name_or_id // process list in one container
+docker container inspect container_name_or_id // details of one container config; meta data about the container (startup config, volumes, networking ...)
+docker container stats container_name_or_id // performance stats for all container (shows live performance)
 ```
 
 ---
