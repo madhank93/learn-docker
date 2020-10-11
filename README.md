@@ -87,21 +87,31 @@ Old way - docker run
 
 ## Creating and using containers
 
-* To check your docker version
+<details>
+
+  <summary>To check your docker version</summary>
 
 ```docker
 docker version
 ```
+</details>
 
-* To check your docker info (shows most config values of the engine)
+---
+
+<details>
+
+  <summary> To check your docker info (shows most config values of the engine) </summary>
 
 ```docker
 docker info
 ```
 
-### Running a Nginx server
+</details>
 
-* To run a docker container in a foreground
+---
+
+<details>
+  <summary> To run a docker container in a foreground </summary>
 
 ```docker
 docker container run --publish 4000:80 nginx
@@ -121,9 +131,13 @@ On execution
 
 Note: publish port format HOST:CONTAINER
 
+</details>
+
 ---
 
-* To start a docker container
+<details>
+
+  <summary> To start a docker container </summary>
 
 ```docker
 docker container start nginx
@@ -135,9 +149,13 @@ docker container start nginx
 
 `start` starts an existing stopped one
 
+</details>
+
 ---
 
-* To list a running docker container
+<details>
+
+  <summary> To list a running docker container </summary>
 
 ```docker
 docker container ls
@@ -156,9 +174,13 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 `ps` and `ls` both does the same thing, where as `ls` command introduced later (newer version)
 
+</details>
+
 ---
 
-* To list all of the docker container
+<details>
+
+  <summary> To list all of the docker container </summary>
 
 ```docker
 docker container ls -a
@@ -166,17 +188,23 @@ docker container ls -a
 
 `-a` lists out all of the containers
 
+</details>
+
 ---
 
-* To stop a docker container
+<details>
+  <summary> To stop a docker container </summary>
 
 ```docker
 docker container stop container_name_or_id
 ```
 
+</details>
+
 ---
 
-* To run a docker container in a background
+<details>
+  <summary> To run a docker container in a background </summary>
 
 ```docker
 docker container run --publish 4000:80 --detach nginx
@@ -188,9 +216,12 @@ docker container run --publish 4000:80 -d nginx
 
 `--detach` or `-d` runs the container in background mode
 
+</details>
+
 ---
 
-* To give docker container a name
+<details>
+  <summary> To give docker container a name </summary>
 
 ```docker
 docker container run --publish 4000:80 -- detach --name webserver nginx
@@ -198,21 +229,34 @@ docker container run --publish 4000:80 -- detach --name webserver nginx
 
 `--name` gives the container a name
 
+</details>
+
 ---
 
-* To see the logs (if you run the container in background and want to see the logs)
+<details>
+  <summary> To see the logs (if you run the container in background and want to see the logs) </summary>
 
 ```docker
 docker container logs container_name_or_id
 ```
 
+</details>
+
 ---
 
-* To remove the container
+<details>
+  <summary> To remove the container </summary>
 
 ```docker
 docker container rm container_name_or_id
 ```
+
+</details>
+
+---
+
+<details>
+  <summary>To force remove the container</summary>
 
 * To force remove the container(even if it is running)
 
@@ -224,17 +268,24 @@ docker container rm -f container_name_or_id
 
 *Note* : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
 
+</details>
+
 ---
 
-* To list running process in specific container
+<details>
+
+  <summary> To list running process in specific container </summary>
 
 ```docker
 docker top container_name_or_id
 ```
 
+</details>
+
 ---
 
-* Assignment: Manage multiple containers
+<details>
+  <summary> Assignment: Manage multiple containers </summary>
 
 ```docker
 docker container run -d -p 3306:3306 --name db -e MYSQL_RANDOM_ROOT_PASSWORD=yes mysql
@@ -248,19 +299,25 @@ docker container run -d --name proxy -p 80:80 nginx
 
 *Note* : Just because the containers(httpd, and nginx) are both listening on port 80 inside (the right number), there is no conflict because on the host they are published on 80, and 8080 separately (the left number).
 
+</details>
+
 ---
 
-* Docker CLI Process monitoring
+<details>
+
+  <summary> Docker CLI Process monitoring </summary>
 
 ```docker
 docker container top container_name_or_id // process list in one container
 docker container inspect container_name_or_id // details of one container config; meta data about the container (startup config, volumes, networking ...)
 docker container stats container_name_or_id // performance stats for all container (shows live performance)
 ```
+</details>
 
 ---
 
-* Getting a Shell inside a container
+<details>
+  <summary> Getting a Shell inside a container </summary>
 
 1. Getting a shell inside a new container (starts new container interactively)
 
@@ -280,9 +337,12 @@ docker container stats container_name_or_id // performance stats for all contain
   docker container exec -it container_name_or_id bash
   ```
 
+</details>
+
 ---
 
-* Docker network concepts
+<details>
+   <summary> Docker network concepts </summary>
 
 ```docker
 docker container port container_name_or_id
@@ -295,6 +355,9 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_n
 ```
 
 `--format` formats the output
+</details>
+
+----
 
 ## Resources
 
