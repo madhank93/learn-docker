@@ -524,9 +524,9 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_n
 
 * [Docker cheat sheet](http://dockerlabs.collabnix.com/docker/cheatsheet/)
 
-* [Docker Tutorial for Beginners - TechWorld with Nana](https://www.youtube.com/watch?v=3c-iBn73dDE&ab_channel=TechWorldwithNana&t=3031s)
+* [Docker Tutorial for Beginners - TechWorld with Nana](https://www.youtube.com/watch?v=3c-iBn73dDE&ab_channel=TechWorldwithNana)
 
-* [Docker Tutorial for Beginners - 	Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org&t=1260s)
+* [Docker Tutorial for Beginners - 	Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org)
 
 ## References
 
