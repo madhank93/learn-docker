@@ -202,7 +202,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 <details>
 
-  <summary> To list all of the docker container </summary>
+  <summary> To list all the docker containers (including stopped containers) </summary>
 
   <p>
 
@@ -446,6 +446,10 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_n
 * [Play with docker](https://labs.play-with-docker.com/)
 
 * [Docker cheat sheet](http://dockerlabs.collabnix.com/docker/cheatsheet/)
+
+* [Docker Tutorial for Beginners - TechWorld with Nana](https://www.youtube.com/watch?v=3c-iBn73dDE&ab_channel=TechWorldwithNana&t=3031s)
+
+* [Docker Tutorial for Beginners - 	Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org&t=1260s)
 
 ## References
 
