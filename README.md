@@ -120,6 +120,83 @@ docker info
 
 <details>
 
+  <summary>To pull docker images</summary>
+
+  <p>
+
+Syntax:
+
+```docker
+docker pull name:tag
+```
+
+Example:
+
+```docker
+docker pull nginx:latest
+docker pull nginx:1.19.6
+```
+
+  </p>
+
+</details>
+
+---
+
+<details>
+
+  <summary>To pull private docker images</summary>
+
+  <p>
+
+Syntax:
+
+```docker
+docker login
+docker pull name:tag
+```
+
+Example:
+
+```docker
+docker login
+docker pull madhank93/wdio
+```
+
+To access private images you need to authenticate at first.
+
+  </p>
+
+</details>
+
+---
+
+<details>
+
+  <summary>To list local docker images</summary>
+
+  <p>
+
+Syntax:
+
+```docker
+docker images
+```
+
+Result:
+```
+REPOSITORY              TAG       IMAGE ID       CREATED        SIZE
+nginx                   latest    f6d0b4767a6c   2 weeks ago    133MB
+```
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
   <summary> To run a docker container in a foreground </summary>
 
   <p>
