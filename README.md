@@ -197,6 +197,29 @@ nginx                   latest    f6d0b4767a6c   2 weeks ago    133MB
 
 <details>
 
+  <summary> To start a docker container </summary>
+
+  <p>
+
+```docker
+docker container start nginx
+```
+
+  </p>
+
+#### run vs start
+
+`run` always starts a *new* container
+      if the image is not locally available, it automatically pulls the image and starts running it. 
+
+`start` starts an existing stopped one
+
+</details>
+
+-----
+
+<details>
+
   <summary> To run a docker container in a foreground </summary>
 
   <p>
@@ -221,28 +244,6 @@ On execution
 Note: publish port format HOST:CONTAINER
 
   </p>
-
-</details>
-
----
-
-<details>
-
-  <summary> To start a docker container </summary>
-
-  <p>
-
-```docker
-docker container start nginx
-```
-
-  </p>
-
-#### run vs start
-
-`run` always starts a *new* container
-
-`start` starts an existing stopped one
 
 </details>
 
