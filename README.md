@@ -209,7 +209,7 @@ docker container start nginx
 
 #### run vs start
 
-`run` always starts a *new* container
+`run` always starts a *new* container;
       if the image is not locally available, it automatically pulls the image and starts running it. 
 
 `start` starts an existing stopped one
