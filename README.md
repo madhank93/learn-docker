@@ -439,6 +439,8 @@ docker container run -d --name proxy -p 80:80 nginx
 
 *Note* : Just because the containers(httpd, and nginx) are both listening on port 80 inside (the right number), there is no conflict because on the host they are published on 80, and 8080 separately (the left number).
 
+![host_container_port](/img/host_container_port.png)
+
   </p>
 
 </details>
