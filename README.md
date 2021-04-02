@@ -45,7 +45,9 @@ An **image** is a package or a template, it is used to create one or more contai
 
 ## How does docker works
 
-![docker-engine](/img/docker-engine-components-flow.png) ![docker-client-server](/img/dokcer_client_server.png)
+![docker-engine](/img/docker-engine-components-flow.png) 
+
+<img src="https://github.com/madhank93/learn_docker/blob/master/img/dokcer_client_server.png" width="100" height="100">
 
 Docker Engine is a client-server application with these major components:
 
@@ -591,6 +593,8 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" <container-
 * [Docker Tutorial for Beginners - TechWorld with Nana](https://www.youtube.com/watch?v=3c-iBn73dDE&ab_channel=TechWorldwithNana)
 
 * [Docker Tutorial for Beginners - 	Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org)
+
+* [Udemy - Docker tutorial - Bret Fisher](https://www.udemy.com/course/docker-mastery/)
 
 ## References
 
