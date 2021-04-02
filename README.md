@@ -45,7 +45,7 @@ An **image** is a package or a template, it is used to create one or more contai
 
 ## How does docker works
 
-![docker-engine](/img/docker-engine-components-flow.png)
+![docker-engine](/img/docker-engine-components-flow.png) ![docker-client-server](/img/dokcer_client_server.png)
 
 Docker Engine is a client-server application with these major components:
 
@@ -89,7 +89,7 @@ Old way - docker run
 
 <details>
 
-  <summary>To check your docker version</summary>
+  <summary> How to check your docker version</summary>
 
   <p>
 
@@ -105,7 +105,7 @@ docker version
 
 <details>
 
-  <summary> To check your docker info (shows most config values of the engine) </summary>
+  <summary> How to check your docker info (shows most config values of the engine) </summary>
 
   <p>
 
@@ -120,15 +120,17 @@ docker info
 
 <details>
 
-  <summary>To pull docker images</summary>
+  <summary> How to pull docker images</summary>
 
   <p>
 
 Syntax:
 
 ```docker
-docker pull name:tag
+docker pull <image-name>:<tag>
 ```
+
+**Note**: If tag is not specified by default it takes latest
 
 Example:
 
@@ -145,7 +147,7 @@ docker pull nginx:1.19.6
 
 <details>
 
-  <summary>To pull private docker images</summary>
+  <summary> How to pull private docker images</summary>
 
   <p>
 
@@ -153,8 +155,10 @@ Syntax:
 
 ```docker
 docker login
-docker pull name:tag
+docker pull <image-name>:<tag>
 ```
+
+**Note:** To access private images you need to authenticate at first.
 
 Example:
 
@@ -162,8 +166,6 @@ Example:
 docker login
 docker pull madhank93/wdio
 ```
-
-To access private images you need to authenticate at first.
 
   </p>
 
@@ -173,7 +175,7 @@ To access private images you need to authenticate at first.
 
 <details>
 
-  <summary>To list local docker images</summary>
+  <summary> How to list local docker images</summary>
 
   <p>
 
@@ -197,9 +199,15 @@ nginx                   latest    f6d0b4767a6c   2 weeks ago    133MB
 
 <details>
 
-  <summary> To start a docker container </summary>
+  <summary> How to start a docker container </summary>
 
   <p>
+
+Syntax:
+
+```docker
+docker container start <container-id-or-name>
+```
 
 ```docker
 docker container start nginx
@@ -220,7 +228,7 @@ docker container start nginx
 
 <details>
 
-  <summary> To run a docker container in a foreground </summary>
+  <summary> How to run a docker container in a foreground </summary>
 
   <p>
 
@@ -229,7 +237,7 @@ docker container run --publish 4000:80 nginx
 ```
   
 
-On execution
+**On execution:**
 
 * Looks for that image locally in image cache, does not find anything
 * Then looks for the image in remote repository (default - docker hub)
@@ -241,7 +249,7 @@ On execution
 
 `--publish` or `-p` to map a host port to a running container port
 
-Note: publish port format HOST:CONTAINER
+**Note**: publish port format HOST:CONTAINER
 
   </p>
 
@@ -251,7 +259,7 @@ Note: publish port format HOST:CONTAINER
 
 <details>
 
-  <summary> To list a running docker container </summary>
+  <summary> How to list a running docker container </summary>
 
   <p>
 
@@ -280,7 +288,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 <details>
 
-  <summary> To list all the docker containers (including stopped containers) </summary>
+  <summary> How to list all the docker containers (including stopped containers) </summary>
 
   <p>
 
@@ -298,13 +306,22 @@ docker container ls -a
 
 <details>
   
-  <summary> To stop a docker container </summary>
+  <summary> How to stop a docker container </summary>
 
   <p>
 
+Syntax:
+
 ```docker
-docker container stop container_name_or_id
+docker container stop <container-id-or-name>
 ```
+
+Example:
+
+```docker
+docker container stop nginx
+```
+
   </p>
 
 </details>
@@ -313,9 +330,18 @@ docker container stop container_name_or_id
 
 <details>
   
-  <summary> To run a docker container in a background </summary>
+  <summary> How to run a docker container in a background </summary>
 
   <p>
+
+Syntax:
+
+```docker
+docker container run -d <container-id-or-name>
+docker container run --detach <container-id-or-name>
+```
+
+Example:
 
 ```docker
 docker container run --publish 4000:80 --detach nginx
@@ -335,9 +361,17 @@ docker container run --publish 4000:80 -d nginx
 
 <details>
   
-  <summary> To give docker container a name </summary>
+  <summary> How to give docker container a name </summary>
 
   <p>
+
+Syntax:
+
+```docker
+docker container run --name <container-name> <container-id-or-name>
+```
+
+Example:
 
 ```docker
 docker container run --publish 4000:80 -- detach --name webserver nginx
@@ -353,12 +387,20 @@ docker container run --publish 4000:80 -- detach --name webserver nginx
 
 <details>
   
-  <summary> To see the logs (if you run the container in background and want to see the logs) </summary>
+  <summary> How to see the logs (if you run the container in background and want to see the logs) </summary>
 
   <p>
 
+Syntax:
+
 ```docker
-docker container logs container_name_or_id
+docker container logs <container-id-or-name>
+```
+
+Example:
+
+```docker
+docker container logs nginx
 ```
 
   </p>
@@ -369,12 +411,22 @@ docker container logs container_name_or_id
 
 <details>
 
-  <summary> To remove the container </summary>
+  <summary> How to remove the container </summary>
 
   <p>
 
+Syntax:
+
 ```docker
-docker container rm container_name_or_id
+docker container rm <container-id-or-name>
+```
+
+**Note**: This command will only remove the stopped container
+
+Example:
+
+```docker
+docker container rm nginx
 ```
 
   </p>
@@ -385,17 +437,26 @@ docker container rm container_name_or_id
 
 <details>
 
-  <summary>To force remove the container</summary>
+  <summary> How to force remove the container</summary>
 
   <p>
 
 * To force remove the container(even if it is running)
 
+Syntax:
+
 ```docker
-docker container rm -f container_name_or_id
+docker container rm -f <container-id-or-name>
+docker container rm --force <container-id-or-name>
 ```
 
-`-f` force removes the container
+Example:
+
+```docker
+docker container rm -f nginx
+```
+
+`-f` or `--force` force removes the container
 
 *Note* : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
 
@@ -407,12 +468,12 @@ docker container rm -f container_name_or_id
 
 <details>
 
-  <summary> To list running process in specific container </summary>
+  <summary> How to list running process in specific container </summary>
 
   <p>
 
 ```docker
-docker top container_name_or_id
+docker top <container-id-or-name>
 ```
 
   </p>
@@ -423,7 +484,7 @@ docker top container_name_or_id
 
 <details>
 
-  <summary> Assignment: Manage multiple containers </summary>
+  <summary> How to manage multiple containers </summary>
 
   <p>
 
@@ -449,14 +510,14 @@ docker container run -d --name proxy -p 80:80 nginx
 
 <details>
 
-  <summary> Docker CLI Process monitoring </summary>
+  <summary> How to monitor Docker CLI process </summary>
 
   <p>
 
 ```docker
-docker container top container_name_or_id // process list in one container
-docker container inspect container_name_or_id // details of one container config; meta data about the container (startup config, volumes, networking ...)
-docker container stats container_name_or_id // performance stats for all container (shows live performance)
+docker container top <container-id-or-name> // process list in one container
+docker container inspect <container-id-or-name> // details of one container config; meta data about the container (startup config, volumes, networking ...)
+docker container stats <container-id-or-name> // performance stats for all container (shows live performance)
 ```
 
   </p>
@@ -467,7 +528,7 @@ docker container stats container_name_or_id // performance stats for all contain
 
 <details>
 
-  <summary> Getting a Shell inside a container </summary>
+  <summary> How to get a Shell inside a container </summary>
 
   <p>
 
@@ -486,7 +547,7 @@ docker container stats container_name_or_id // performance stats for all contain
 2. Getting a shell inside a existing container (run additional command in existing container)
 
   ```docker
-  docker container exec -it container_name_or_id bash
+  docker container exec -it <container-id-or-name> bash
   ```
 
   </p>
@@ -502,13 +563,13 @@ docker container stats container_name_or_id // performance stats for all contain
    <p>
 
 ```docker
-docker container port container_name_or_id
+docker container port <container-id-or-name>
 ```
 
 `port` exposes the which ports are forwarding traffic to that container from the host
 
 ```docker
-docker container inspect --format "{{ .NetworkSettings.IPAddress }}" container_name_or_id
+docker container inspect --format "{{ .NetworkSettings.IPAddress }}" <container-id-or-name>
 ```
 
 `--format` formats the output
