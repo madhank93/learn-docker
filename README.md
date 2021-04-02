@@ -47,7 +47,7 @@ An **image** is a package or a template, it is used to create one or more contai
 
 ![docker-engine](/img/docker-engine-components-flow.png) 
 
-<img src="https://github.com/madhank93/learn_docker/blob/master/img/dokcer_client_server.png" width="100" height="100">
+<img src="https://github.com/madhank93/learn_docker/blob/master/img/dokcer_client_server.png" width="500" height="500">
 
 Docker Engine is a client-server application with these major components:
 
