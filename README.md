@@ -534,6 +534,12 @@ docker container stats <container-id-or-name> // performance stats for all conta
 
   <p>
 
+Syntax:
+
+```docker
+docker container exec -it <container-id-or-name> <command-name>
+```
+
 1. Getting a shell inside a new container (starts new container interactively)
 
   ```docker
