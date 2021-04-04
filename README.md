@@ -4,11 +4,11 @@
 
 ![history](/img/history.png)
 
-## What is docker
+## What is docker ?
 
 **Docker** is a tool designed to make it easier to create, deploy, and run applications by using containers.
 
-## Why do you need docker
+## Why do you need docker ?
 
 ![compatibility_dependency_issue](/img/compatibility_dependency_issue.jpg)
 
@@ -20,7 +20,7 @@
 
 * When you want to adopt a microservices architecture.
 
-## What can docker do
+## What can docker do ?
 
 ![docker_ability](/img/docker_ability.jpg)
 
@@ -29,8 +29,7 @@
 * Isolates apps from each other
 
 * Run each service with its own dependencies in separate containers
-
-## What are containers and images
+## What are containers and images ?
 
 **Container** allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package. Its decouples the OS from the application dependencies and the code. It is a completely isolated environment with their own processes, network interfaces and their own mounts except they all share the same OS kernel.
 
@@ -43,7 +42,7 @@ An **image** is a package or a template, it is used to create one or more contai
 - Container is an instance of that image running as a process
 ```
 
-## How does docker works
+## How does docker works ?
 
 ![docker-engine](/img/docker-engine-components-flow.png) 
 
@@ -91,7 +90,7 @@ Old way - docker run
 
 <details>
 
-  <summary> How to check your docker version</summary>
+  <summary> 1. How to check your docker version ? </summary>
 
   <p>
 
@@ -107,7 +106,7 @@ docker version
 
 <details>
 
-  <summary> How to check your docker info (shows most config values of the engine) </summary>
+  <summary> 2. How to check your docker info (shows most config values of the engine) ? </summary>
 
   <p>
 
@@ -122,7 +121,7 @@ docker info
 
 <details>
 
-  <summary> How to pull docker images</summary>
+  <summary> 3. How to pull docker images ? </summary>
 
   <p>
 
@@ -149,7 +148,7 @@ docker pull nginx:1.19.6
 
 <details>
 
-  <summary> How to pull private docker images</summary>
+  <summary> 4. How to pull private docker images ? </summary>
 
   <p>
 
@@ -177,7 +176,7 @@ docker pull madhank93/wdio
 
 <details>
 
-  <summary> How to list local docker images</summary>
+  <summary> 5. How to list local docker images ? </summary>
 
   <p>
 
@@ -201,7 +200,7 @@ nginx                   latest    f6d0b4767a6c   2 weeks ago    133MB
 
 <details>
 
-  <summary> How to start a docker container </summary>
+  <summary> 6. How to start a docker container ? </summary>
 
   <p>
 
@@ -230,14 +229,22 @@ docker container start nginx
 
 <details>
 
-  <summary> How to run a docker container in a foreground </summary>
+  <summary> 7. How to run a docker container in a foreground ? </summary>
 
   <p>
+
+Syntax:
+
+```docker
+docker container run <image-id-or-name>
+```
+
+Example:
 
 ```docker
 docker container run --publish 4000:80 nginx
 ```
-  
+
 
 **On execution:**
 
@@ -261,7 +268,7 @@ docker container run --publish 4000:80 nginx
 
 <details>
 
-  <summary> How to list a running docker container </summary>
+  <summary> 8. How to list a running docker container ? </summary>
 
   <p>
 
@@ -290,7 +297,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 <details>
 
-  <summary> How to list all the docker containers (including stopped containers) </summary>
+  <summary> 9. How to list all the docker containers (including stopped containers) ? </summary>
 
   <p>
 
@@ -308,7 +315,7 @@ docker container ls -a
 
 <details>
   
-  <summary> How to stop a docker container </summary>
+  <summary> 10. How to stop a docker container ? </summary>
 
   <p>
 
@@ -332,7 +339,7 @@ docker container stop nginx
 
 <details>
   
-  <summary> How to run a docker container in a background </summary>
+  <summary> 11. How to run a docker container in a background ? </summary>
 
   <p>
 
@@ -363,9 +370,9 @@ docker container run --publish 4000:80 -d nginx
 
 <details>
   
-  <summary> How to give docker container a name </summary>
+  <summary> 12. How to give docker container a name ? </summary>
 
-  <p>
+  <p> 
 
 Syntax:
 
@@ -389,7 +396,7 @@ docker container run --publish 4000:80 -- detach --name webserver nginx
 
 <details>
   
-  <summary> How to see the logs (if you run the container in background and want to see the logs) </summary>
+  <summary> 13. How to see the logs (if you run the container in background and want to see the logs) ? </summary>
 
   <p>
 
@@ -413,7 +420,7 @@ docker container logs nginx
 
 <details>
 
-  <summary> How to remove the container </summary>
+  <summary> 14. How to remove the container ? </summary>
 
   <p>
 
@@ -439,7 +446,7 @@ docker container rm nginx
 
 <details>
 
-  <summary> How to force remove the container</summary>
+  <summary> 15. How to force remove the container ? </summary>
 
   <p>
 
@@ -470,7 +477,7 @@ docker container rm -f nginx
 
 <details>
 
-  <summary> How to list running process in specific container </summary>
+  <summary> 16. How to list running process in specific container ? </summary>
 
   <p>
 
@@ -486,7 +493,7 @@ docker top <container-id-or-name>
 
 <details>
 
-  <summary> How to manage multiple containers </summary>
+  <summary> 17. How to manage multiple containers ? </summary>
 
   <p>
 
@@ -512,7 +519,7 @@ docker container run -d --name proxy -p 80:80 nginx
 
 <details>
 
-  <summary> How to monitor Docker CLI process </summary>
+  <summary> 18. How to monitor Docker CLI process ? </summary>
 
   <p>
 
@@ -530,7 +537,7 @@ docker container stats <container-id-or-name> // performance stats for all conta
 
 <details>
 
-  <summary> How to get a Shell inside a container </summary>
+  <summary> 19. How to get a Shell inside a container ? </summary>
 
   <p>
 
@@ -566,7 +573,7 @@ docker container exec -it <container-id-or-name> <command-name>
 
 <details>
 
-   <summary> Docker network concepts </summary>
+   <summary> 20. Docker network concepts </summary>
 
    <p>
 
@@ -587,6 +594,52 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" <container-
 </details>
 
 ----
+
+<details>
+
+   <summary> 21. What is layers in docker images ? </summary>
+
+   <p>
+
+Images are composed of layers. Each layer is a set of filesystem changes. Images are created using a dockerfile and every line in a dockerfile results in creating a new layer. 
+
+Every layer gets its own unique SHA number that helps system to identify if that layer has already exists (so that we don't have to download the layers that already exists). This guarantees layer are not stored more than one.
+
+If you want to see the layers of the image.
+
+Syntax:
+
+```docker
+docker image history <image-id-or-name>
+```
+
+Example:
+
+```docker
+docker image history redis
+```
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
+   <summary> 22. How to tag an image ? </summary>
+
+   <p>
+
+
+
+  </p>
+
+</details>
+
+----
+
+
 
 ## Resources
 
