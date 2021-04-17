@@ -643,7 +643,46 @@ Example:
 docker image tag alpine madhank93/alpine:1.0.12
 ```
 
+  </p>
 
+</details>
+
+----
+
+<details>
+
+   <summary> 23. How to build an image ?</summary>
+
+   <p>
+
+Docker image is built from the `Dockerfile` 
+
+Syntax:
+
+1. If the Dockerfile file is in the root directory (from where you run the command)
+
+```docker
+docker image build <image-name> .
+```
+
+2. If the dockerfile is not present in root directory but at a different folder
+
+Example:
+
+```docker
+docker image build -f <path-of-the-dockerfile> -t <image-name> .
+
+or 
+
+docker image build --file <path-of-the-dockerfile> -t <image-name> .
+```
+
+
+Example:
+
+```docker
+
+```
 
   </p>
 
