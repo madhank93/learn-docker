@@ -86,8 +86,6 @@ New way - docker container run
 Old way - docker run
 ```
 
-## Creating and using containers
-
 <details>
 
   <summary> 1. How to check your docker version ? </summary>
@@ -655,14 +653,12 @@ docker image history redis
 
 * [Udemy - Docker tutorial - Bret Fisher](https://www.udemy.com/course/docker-mastery/)
 
-## References
+* <https://docs.docker.com/get-started/>
 
-[1] <https://docs.docker.com/get-started/>
+* <https://opensource.com/resources/what-docker>
 
-[2] <https://opensource.com/resources/what-docker>
+* <https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/docker-terminology>
 
-[3] <https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/docker-terminology>
+* <https://www.redhat.com/en/topics/containers/what-is-docker>
 
-[4] <https://www.redhat.com/en/topics/containers/what-is-docker>
-
-[5] <https://github.com/collabnix/dockerlabs>
+* <https://github.com/collabnix/dockerlabs>
