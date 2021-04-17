@@ -517,7 +517,7 @@ docker container run -d --name proxy -p 80:80 nginx
 
 <details>
 
-  <summary> 18. How to monitor Docker CLI process ? </summary>
+  <summary> 18. How to monitor docker process from CLI ? </summary>
 
   <p>
 
@@ -625,9 +625,23 @@ docker image history redis
 
 <details>
 
-   <summary> 22. How to tag an image ? </summary>
+   <summary> 22. How to tag an existing image ?</summary>
 
    <p>
+
+Syntax:
+
+```docker
+docker image tag <source-image-id> <TARGET_IMAGE>:<TAG>
+```
+
+**Note**: If no tag has mentioned by default it will assign latest to it.
+
+Example:
+
+```docker
+docker image tag alpine madhank93/alpine:1.0.12
+```
 
 
 
@@ -652,6 +666,8 @@ docker image history redis
 * [Docker Tutorial for Beginners - 	Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org)
 
 * [Udemy - Docker tutorial - Bret Fisher](https://www.udemy.com/course/docker-mastery/)
+
+* [Docker handbook](https://www.freecodecamp.org/news/the-docker-handbook/)
 
 * <https://docs.docker.com/get-started/>
 
