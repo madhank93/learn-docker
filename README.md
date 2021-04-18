@@ -662,26 +662,23 @@ Syntax:
 1. If the Dockerfile file is in the root directory (from where you run the command)
 
 ```docker
-docker image build <image-name> .
+docker image build -t <image-name> .
 ```
 
 2. If the dockerfile is not present in root directory but at a different folder
-
-Example:
 
 ```docker
 docker image build -f <path-of-the-dockerfile> -t <image-name> .
 
 or 
 
-docker image build --file <path-of-the-dockerfile> -t <image-name> .
+docker image build --file <path-of-the-dockerfile> -t <image-name:tag> .
 ```
-
 
 Example:
 
 ```docker
-
+docker image build -f docker-files/creating_img/Dockerfile -t custom_python_img:1.0.0 .
 ```
 
   </p>
