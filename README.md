@@ -662,7 +662,7 @@ Syntax:
 1. If the Dockerfile file is in the root directory (from where you run the command)
 
 ```docker
-docker image build -t <image-name> .
+docker image build -t <image-name:tag> .
 ```
 
 2. If the dockerfile is not present in root directory but at a different folder
@@ -680,6 +680,66 @@ Example:
 ```docker
 docker image build -f docker-files/creating_img/Dockerfile -t custom_python_img:1.0.0 .
 ```
+
+**Note**: The order in the `Dockerfile` is important, less changes should be on top and things could change frequently should be placed below (like copying the code). So that whenever we are re-building the image, we only rebuild it from that line, otherwise docker will use the cached layer.
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
+  <summary> 24. How to see the disk usage of docker ? </summary>
+
+  <p>
+
+Syntax:
+
+```docker
+docker system df
+```
+
+Output:
+
+![docker_usage](/img/docker_usage.png)
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
+  <summary> 25. How to clean up volumes, build cache, stopped images and containers ? </summary>
+
+  <p>
+
+Syntax:
+
+```docker
+docker image prune # to clean up just "dangling" images
+docker container prune # to clean up stopped containers
+docker system prune # will clean up everything
+```
+
+**Note**: Add `-a` to force delete all.
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
+  <summary>  </summary>
+
+  <p>
+
+
 
   </p>
 
