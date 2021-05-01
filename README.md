@@ -785,7 +785,7 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
   Syntax:
 
   ```docker
-    docker run -v <path-in-container> <image-id-or-name>
+    docker container run -v <path-in-container> <image-id-or-name>
   ```
 
   Example:
@@ -799,7 +799,7 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
   Syntax:
 
   ```docker
-    docker run -v <volume-name>:<path-in-container> <image-id-or-name>
+    docker container run -v <volume-name>:<path-in-container> <image-id-or-name>
   ```
 
   Example:
@@ -813,6 +813,27 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 </details>
 
 ----
+
+<details>
+
+  <summary> 29. How to bind mounting in docker ? </summary>
+
+  <p>
+
+  Syntax:
+
+  ```docker
+    docker container run -v <path-in-host>:<path-in-container> <image-id-or-name>
+  ```
+  </p>
+
+  Example:
+
+  ```docker
+    docker container run -p 8180:80 -d -v /Users/madhan/Desktop/nginx-logs:/var/log/nginx nginx
+  ```
+
+</details>
 
 
 ## Resources
