@@ -944,6 +944,25 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
+  <summary> 32. How to stop the docker compose yml file ? </summary>
+
+  <p>
+
+  Syntax:
+
+  ```docker
+  docker-compose down # if the docker-compose.yml is the root level
+  docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml down # if the docker-compose yml file is located at different location 
+  ```
+
+  </p>
+
+</details>
+
+-----
+
+<details>
+
   <summary>  </summary>
 
   <p>
