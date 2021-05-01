@@ -735,7 +735,32 @@ docker system prune # will clean up everything
 
 <details>
 
-  <summary>  </summary>
+  <summary> 26. Why we need to persist data in docker ? </summary>
+
+  <p>
+Docker containers are ephemeral (lasts only for a short period of time), once the container crashes or removed, data (ex: mysql data or logs of the server) inside the container will lost. To avoid such scenario, data must be persisted.
+  </p>
+
+</details>
+
+----
+
+<details>
+
+  <summary> 27. What are the ways we can persist data ? </summary>
+
+  There is 2 ways,
+
+    1. Data volumes - are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
+
+       a. Anonymous volume : It can be difficult to refer to this volume later, since docker gives them a random name. 
+       b. Named volumes : It lot more easier to refer, since we are naming the volumes.
+
+    2. Bind mounting - may be stored anywhere on the host system. They may even be important system files or directories. Non-Docker processes on the Docker host or a Docker container can modify them at any time.
+
+  ![docker_usage](/img/types-of-mounts.png)
+
+  **Note**: For more info refer to [Manage data in docker](https://docs.docker.com/storage/)
 
   <p>
 
