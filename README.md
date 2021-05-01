@@ -825,7 +825,7 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
   ```docker
     docker container run -v <path-in-host>:<path-in-container> <image-id-or-name>
   ```
-  </p>
+  
 
   Example:
 
@@ -833,8 +833,31 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
     docker container run -p 8180:80 -d -v /Users/madhan/Desktop/nginx-logs:/var/log/nginx nginx
   ```
 
+  </p>
+
 </details>
 
+-----
+
+<details>
+
+  <summary> 30. How to migrate to an latest version of docker image without any data ? </summary>
+
+  <p>
+
+  Example: 
+
+  ```docker
+  docker container run -d --name postgres -v postgres-db:/var/lib/postgresql/data postgres:9.6.1 # initial version
+
+  docker container run -d --name postgres2 -v postgres-db:/var/lib/postgresql/data postgres:9.6.2 # upgraded to newer version
+  ```
+
+  </p>
+
+</details>
+
+-----
 
 ## Resources
 
