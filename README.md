@@ -749,6 +749,8 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <summary> 27. What are the ways we can persist data ? </summary>
 
+  ![types_of_mount](/img/types-of-mounts.png)
+
   There is 2 ways,
 
     1. Data volumes - are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux). Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
@@ -756,15 +758,15 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
        a. Anonymous volume : It can be difficult to refer to this volume later, since docker gives them a random name. 
        b. Named volumes : It lot more easier to refer, since we are naming the volumes.
 
+       ![named_and_anonymous_volume](/img/listing_volume.png.png)
+
     2. Bind mounting - may be stored anywhere on the host system. They may even be important system files or directories. Non-Docker processes on the Docker host or a Docker container can modify them at any time.
 
-  ![docker_usage](/img/types-of-mounts.png)
+  
 
   **Note**: For more info refer to [Manage data in docker](https://docs.docker.com/storage/)
 
   <p>
-
-
 
   </p>
 
@@ -772,6 +774,45 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
 ----
 
+<details>
+
+  <summary> 28. How to create the data volumes in docker ? </summary>
+
+  1. Anonymous volume:
+     
+     Syntax:
+
+     ```docker
+        docker run -v <path-in-container> <image-id-or-name>
+     ```
+
+     Example:
+
+     ```docker
+        docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /var/lib/mysql mysql
+     ```
+
+  2. Named volume:
+
+    Syntax:
+
+     ```docker
+        docker run -v /path/in/container
+     ```
+
+     Example:
+
+     ```docker
+        docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v var/lib/mysql mysql
+     ```
+
+  <p>
+
+  </p>
+
+</details>
+
+----
 
 
 ## Resources
