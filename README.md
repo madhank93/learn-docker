@@ -660,7 +660,7 @@ docker image tag alpine madhank93/alpine:1.0.12
 
    <p>
 
-Docker image is built from the `Dockerfile` 
+Docker image is built from the `Dockerfile` (Example of the dockerfile is available at `docker-files/creating_img`)
 
 Syntax:
 
@@ -915,6 +915,25 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
       - MYSQL_USER=user
       - MYSQL_PASSWORD=password
       - MYSQL_DATABASE=demodb
+  ```
+
+  </p>
+
+</details>
+
+-----
+
+<details>
+
+  <summary> 32. How to run the docker compose yml file ? </summary>
+
+  <p>
+
+  Syntax:
+
+  ```docker
+  docker-compose up # if the docker-compose.yml is the root level
+  docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml up # if the docker-compose yml file is located at different location 
   ```
 
   </p>

@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+    proxy:
+        image: nginx:1.11
+        ports: 
+            - '80:80'
+        volumes: 
+            - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    web:
+        image: httpd
