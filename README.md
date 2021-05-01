@@ -749,6 +749,8 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <summary> 27. What are the ways we can persist data ? </summary>
 
+ <p>
+
   ![types_of_mount](/img/types-of-mounts.png)
 
   There is 2 ways,
@@ -766,8 +768,6 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   **Note**: For more info refer to [Manage data in docker](https://docs.docker.com/storage/)
 
-  <p>
-
   </p>
 
 </details>
@@ -778,35 +778,35 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <summary> 28. How to create the data volumes in docker ? </summary>
 
+<p>
+
   1. Anonymous volume:
      
-     Syntax:
+  Syntax:
 
-     ```docker
-        docker run -v <path-in-container> <image-id-or-name>
-     ```
+  ```docker
+    docker run -v <path-in-container> <image-id-or-name>
+  ```
 
-     Example:
+  Example:
 
-     ```docker
-        docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /var/lib/mysql mysql
-     ```
+  ```docker
+    docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /var/lib/mysql mysql
+  ```
 
   2. Named volume:
 
-    Syntax:
+  Syntax:
 
-     ```docker
-        docker run -v /path/in/container
-     ```
+  ```docker
+    docker run -v <volume-name>:<path-in-container> <image-id-or-name>
+  ```
 
-     Example:
+  Example:
 
-     ```docker
-        docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v var/lib/mysql mysql
-     ```
-
-  <p>
+  ```docker
+    docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql  mysql
+  ```
 
   </p>
 
