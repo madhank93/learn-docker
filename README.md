@@ -977,10 +977,36 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary>  </summary>
+  <summary> 34. How to delete a volumes created with docker compose ? </summary>
 
   <p>
 
+  Syntax:
+
+  ```docker
+  docker-compose down -v
+  ```
+
+  </p>
+
+</details>
+
+-----
+
+<details>
+
+  <summary> 35. How to build an image using Docker compose ? </summary>
+
+  <p>
+
+  Refer to the `docker-files/docker-compose-ex-3/docker-compose.yml` file.
+
+  Change yo
+
+  ```docker
+  docker-compose up # to start it
+  docker-compose down --rmi local # to stop and delete the containers along with it
+  ```
 
   </p>
 
