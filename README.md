@@ -932,7 +932,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
   Syntax:
 
   ```docker
-  docker-compose up # if the docker-compose.yml is the root level
+  docker-compose up # if the docker-compose.yml is located at the root level
   docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml up # if the docker-compose yml file is located at different location 
   ```
 
@@ -951,9 +951,23 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
   Syntax:
 
   ```docker
-  docker-compose down # if the docker-compose.yml is the root level
+  docker-compose down # if the docker-compose.yml is located at the root level
   docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml down # if the docker-compose yml file is located at different location 
   ```
+
+  </p>
+
+</details>
+
+-----
+
+<details>
+
+  <summary> 33. How to setup an Drupal and Postgres using docker compose ? </summary>
+
+  <p>
+
+    Refer to the `docker-files/docker-compose-ex-2/docker-compose.yml` file.
 
   </p>
 
