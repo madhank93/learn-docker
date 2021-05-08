@@ -909,6 +909,20 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
+  <summary> 33. How does the containers communicate with other containers ?</summary>
+
+  <p>
+
+ When two containers are connected to the same user-defined bridge network, one container is able to connect to an another container by using its container/service name (as the hostname). When you run containers using docker-compose, it will automatically creates one.
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
   <summary> 33. What is the relation between Dockerfile and docker compose yml file ?</summary>
 
   <p>
