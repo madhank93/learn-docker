@@ -871,6 +871,82 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
+  <summary> 31. How to list out the available networks ?</summary>
+
+  <p>
+
+  Syntax:
+
+  ```docker
+  docker network ls
+  ```
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
+  <summary> 32. What are all the default networks available in docker ?</summary>
+
+  <p>
+
+  There are 3 default networks available. They are,
+
+![docker_network](/img/docker_networks.png)
+
+    1. Bridge
+    2. none
+    3. host
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
+  <summary> 33. What is the relation between Dockerfile and docker compose yml file ?</summary>
+
+  <p>
+
+  Dockerfile - is used to create an docker image out of it
+
+  Docker-compose yml - it is used to easily run the (multi)containers, docker commands are easily maintained.
+  
+  </p>
+
+</details>
+
+----
+
+<details>
+
+  <summary> 33. Difference between RUN vs CMD vs ENTRYPOINT ?</summary>
+
+  <p>
+
+  RUN - executes command(s) in a new layer and creates a new image on top of an existing image.
+
+  CMD - used to set a default command, can be overwritten from command line when docker container runs.
+
+  Ex: CMD sleep 5
+
+      docker run image_name 10 # sleep 5 will be replaced with sleep 10
+
+  ENTRYPOINT - it is similar to the CMD, 
+
+  </p>
+
+</details>
+
+----
+
+<details>
+
   <summary> 31. How to manage multi-container or what is the use of docker compose ? </summary>
 
   <p>
