@@ -923,7 +923,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 33. What is the relation between Dockerfile and docker compose yml file ?</summary>
+  <summary> 34. What is the relation between Dockerfile and docker compose yml file ?</summary>
 
   <p>
 
@@ -939,7 +939,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 33. Difference between RUN vs CMD vs ENTRYPOINT ?</summary>
+  <summary> 35. Difference between RUN vs CMD vs ENTRYPOINT ?</summary>
 
   <p>
 
@@ -961,7 +961,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 31. How to manage multi-container or what is the use of docker compose ? </summary>
+  <summary> 36. How to manage multi-container or what is the use of docker compose ? </summary>
 
   <p>
 
@@ -1015,7 +1015,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 32. How to run the docker compose yml file ? </summary>
+  <summary> 37. How to run the docker compose yml file ? </summary>
 
   <p>
 
@@ -1034,7 +1034,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 32. How to stop the docker compose yml file ? </summary>
+  <summary> 38. How to stop the docker compose yml file ? </summary>
 
   <p>
 
@@ -1053,7 +1053,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 33. How to setup an Drupal and Postgres using docker compose ? </summary>
+  <summary> 39. How to setup an Drupal and Postgres using docker compose ? </summary>
 
   <p>
 
@@ -1067,7 +1067,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 34. How to delete a volumes created with docker compose ? </summary>
+  <summary> 40. How to delete a volumes created with docker compose ? </summary>
 
   <p>
 
@@ -1085,17 +1085,49 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 35. How to build an image using Docker compose ? </summary>
+  <summary> 41. How to build an image using Docker compose ? </summary>
 
   <p>
 
   Refer to the `docker-files/docker-compose-ex-3/docker-compose.yml` file.
 
-  Change yo
+  `cd into that folder`
 
   ```docker
   docker-compose up # to start it
   docker-compose down --rmi local # to stop and delete the containers along with it
+  ```
+
+  </p>
+
+</details>
+
+-----
+
+<details>
+
+  <summary> 42. How to list all dangling images ? </summary>
+
+  <p>
+
+  ```docker
+  docker images -f dangling=true
+  ```
+
+  </p>
+
+</details>
+
+-----
+
+<details>
+
+  <summary> 42. How to list all the exited containers ? </summary>
+
+  <p>
+
+  ```docker
+  docker container ls -a -f status=exited
   ```
 
   </p>
