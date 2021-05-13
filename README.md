@@ -1122,7 +1122,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 <details>
 
-  <summary> 42. How to list all the exited containers ? </summary>
+  <summary> 43. How to list all the exited containers ? </summary>
 
   <p>
 
@@ -1138,17 +1138,28 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
 ## Resources
 
+### Interactive
+
 * [Katacoda docker](https://www.katacoda.com/courses/container-runtimes)
 
 * [Play with docker](https://labs.play-with-docker.com/)
 
+### Sketch notes series
+
+* [Docker in sketch notes Series](https://dev.to/aurelievache/series/8105)
+  
+### Cheat sheet
 * [Docker cheat sheet](http://dockerlabs.collabnix.com/docker/cheatsheet/)
+
+### Video series
 
 * [Docker Tutorial for Beginners - TechWorld with Nana](https://www.youtube.com/watch?v=3c-iBn73dDE&ab_channel=TechWorldwithNana)
 
 * [Docker Tutorial for Beginners - 	Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org)
 
 * [Udemy - Docker tutorial - Bret Fisher](https://www.udemy.com/course/docker-mastery/)
+
+### Articles
 
 * [Docker handbook](https://www.freecodecamp.org/news/the-docker-handbook/)
 
