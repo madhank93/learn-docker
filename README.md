@@ -970,7 +970,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
   docker run ubuntu-sleeper sleep 10 # sleep 5 will be replaced with - sleep 10
   ```
 
-  **ENTRYPOINT** - It is similar to the CMD, but it will not ignore additional parameters.
+  **ENTRYPOINT** - It is similar to the CMD, but it will not ignore additional parameters,rather it will get appended.
 
   Ex:
   ```
@@ -981,6 +981,18 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
   ```docker
   docker run ubuntu-sleeper 10 # 10 will be added to it - sleep 10
   ```
+
+  **Note** : If we are running the above command without specifying time-out (number) `docker run ubuntu-sleeper` this cause an 
+  error since its expecting an operand need to be passed. To avoid that following example can be used.
+
+  Ex:
+  ```
+  FROM ubuntu
+  ENTRYPOINT ["sleep"]
+  CMD["5"]
+  ```
+
+  Now if the user did not specify the time-out, by default it wait for 5 secs. If it specified it will be replaced.
 
   </p>
 
