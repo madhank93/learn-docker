@@ -98,6 +98,8 @@ New way - docker container run
 Old way - docker run
 ```
 
+## Q&A
+
 <details>
 
   <summary> 1. How to check your docker version ? </summary>
@@ -953,15 +955,32 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
   <p>
 
-  RUN - executes command(s) in a new layer and creates a new image on top of an existing image.
+  **RUN** - executes command(s) in a new layer and creates a new intermediate image on top of an existing image. It is always
+  recommended to chain all the RUN commands,to avoid adding more layers to the image.
 
-  CMD - used to set a default command, can be overwritten from command line when docker container runs.
+  **CMD** - used to set a default command, can be overwritten from command line when docker container runs.
 
-  Ex: CMD sleep 5
+  Ex:
+  ```
+  FROM ubuntu
+  CMD sleep 5
+  ```
 
-      docker run image_name 10 # sleep 5 will be replaced with sleep 10
+  ```docker
+  docker run ubuntu-sleeper sleep 10 # sleep 5 will be replaced with - sleep 10
+  ```
 
-  ENTRYPOINT - it is similar to the CMD, 
+  **ENTRYPOINT** - It is similar to the CMD, but it will not ignore additional parameters.
+
+  Ex:
+  ```
+  FROM ubuntu
+  ENTRYPOINT ["sleep"]
+  ```
+
+  ```docker
+  docker run ubuntu-sleeper 10 # 10 will be added to it - sleep 10
+  ```
 
   </p>
 
