@@ -62,35 +62,38 @@ networks, and volumes.
 
 ## List of Docker objects
 
-```text
-New way: docker <object> <commands> (options)
-Old way: docker <command> (options)
 
 Management Commands:
 ```
-  app*        Docker App (Docker Inc., v0.9.1-beta3)
-  builder     Manage builds
-  buildx*     Build with BuildKit (Docker Inc., v0.5.1-docker)
-  compose*    Docker Compose (Docker Inc., 2.0.0-beta.1)
-  config      Manage Docker configs
-  container   Manage containers
-  context     Manage contexts
-  image       Manage images
-  manifest    Manage Docker image manifests and manifest lists
-  network     Manage networks
-  node        Manage Swarm nodes
-  plugin      Manage plugins
-  scan*       Docker Scan (Docker Inc., v0.8.0)
-  secret      Manage Docker secrets
-  service     Manage services
-  stack       Manage Docker stacks
-  swarm       Manage Swarm
-  system      Manage Docker
-  trust       Manage trust on Docker images
-  volume      Manage volumes
+app*        Docker App (Docker Inc., v0.9.1-beta3)
+builder     Manage builds
+buildx*     Build with BuildKit (Docker Inc., v0.5.1-docker)
+compose*    Docker Compose (Docker Inc., 2.0.0-beta.1)
+config      Manage Docker configs
+container   Manage containers
+context     Manage contexts
+image       Manage images
+manifest    Manage Docker image manifests and manifest lists
+network     Manage networks
+node        Manage Swarm nodes
+plugin      Manage plugins
+scan*       Docker Scan (Docker Inc., v0.8.0)
+secret      Manage Docker secrets
+service     Manage services
+stack       Manage Docker stacks
+swarm       Manage Swarm
+system      Manage Docker
+trust       Manage trust on Docker images
+volume      Manage volumes
+```
+
+```text
+New way: docker <object> <commands> (options)
+Old way: docker <command> (options)
 ```
 
 Example:
+```
 New way - docker container run
 Old way - docker run
 ```
