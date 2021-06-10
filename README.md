@@ -56,9 +56,7 @@ Docker Engine is a client-server application with these major components:
 
 * A command line interface (CLI) client (the docker command).
 
-The CLI uses the Docker REST API to control or interact with the Docker daemon through scripting or direct CLI commands. Many other 
-Docker applications use the underlying API and CLI. The daemon creates and manages Docker objects, such as images, containers, 
-networks, and volumes.
+The CLI uses the Docker REST API to control or interact with the Docker daemon through scripting or direct CLI commands. Many other Docker applications use the underlying API and CLI. The daemon creates and manages Docker objects, such as images, containers, networks, and volumes.
 
 ## List of Docker objects
 
@@ -519,8 +517,7 @@ docker container run -d --name server -p 8080:80 httpd
 docker container run -d --name proxy -p 80:80 nginx
 ```
 
-*Note* : Just because the containers(httpd, and nginx) are both listening on port 80 inside (the right number), there is no conflict 
-because on the host they are published on 80, and 8080 separately (the left number).
+*Note* : Just because the containers(httpd, and nginx) are both listening on port 80 inside (the right number), there is no conflict because on the host they are published on 80, and 8080 separately (the left number).
 
 ![host_container_port](/img/host_container_port.png)
 
@@ -614,11 +611,9 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" <container-
 
    <p>
 
-Images are composed of layers. Each layer is a set of filesystem changes. Images are created using a dockerfile and every line in a 
-dockerfile results in creating a new layer. 
+Images are composed of layers. Each layer is a set of filesystem changes. Images are created using a dockerfile and every line in a dockerfile results in creating a new layer. 
 
-Every layer gets its own unique SHA number that helps system to identify if that layer has already exists (so that we don't have to 
-download the layers that already exists). This guarantees layer are not stored more than one.
+Every layer gets its own unique SHA number that helps system to identify if that layer has already exists (so that we don't have to download the layers that already exists). This guarantees layer are not stored more than one.
 
 If you want to see the layers of the image.
 
@@ -698,9 +693,7 @@ Example:
 docker image build -f docker-files/creating_img/Dockerfile -t custom_python_img:1.0.0 .
 ```
 
-**Note**: The order in the `Dockerfile` is important, less changes should be on top and things could change frequently should be 
-placed below (like copying the code). So that whenever we are re-building the image, we only rebuild it from that line, otherwise 
-docker will use the cached layer.
+**Note**: The order in the `Dockerfile` is important, less changes should be on top and things could change frequently should be placed below (like copying the code). So that whenever we are re-building the image, we only rebuild it from that line, otherwise docker will use the cached layer.
 
   </p>
 
@@ -757,8 +750,7 @@ docker system prune # will clean up everything
   <summary> 26. Why we need to persist data in docker ? </summary>
 
   <p>
-Docker containers are ephemeral (lasts only for a short period of time), once the container crashes or removed, data (ex: mysql data 
-or logs of the server) inside the container will lost. To avoid such scenario, data must be persisted.
+Docker containers are ephemeral (lasts only for a short period of time), once the container crashes or removed, data (ex: mysql data or logs of the server) inside the container will lost. To avoid such scenario, data must be persisted.
   </p>
 
 </details>
@@ -775,16 +767,14 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
   There is 2 ways,
 
-    1. Data volumes - are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux). 
-    Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
+    1. Data volumes - are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux. Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
 
        a. Anonymous volume : It can be difficult to refer to this volume later, since docker gives them a random name. 
        b. Named volumes : It lot more easier to refer, since we are naming the volumes.
 
-       ![named_and_anonymous_volume](/img/listing_volume.png.png)
+  ![named_and_anonymous_volume](/img/listing_volume.png)
 
-    2. Bind mounting - may be stored anywhere on the host system. They may even be important system files or directories. Non-Docker 
-    processes on the Docker host or a Docker container can modify them at any time.
+    2. Bind mounting - may be stored anywhere on the host system. They may even be important system files or directories.Non-Docker processes on the Docker host or a Docker container can modify them at any time.
 
   
 
@@ -955,8 +945,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
   <p>
 
-  **RUN** - executes command(s) in a new layer and creates a new intermediate image on top of an existing image. It is always
-  recommended to chain all the RUN commands,to avoid adding more layers to the image.
+  **RUN** - executes command(s) in a new layer and creates a new intermediate image on top of an existing image. It is always recommended to chain all the RUN commands,to avoid adding more layers to the image.
 
   **CMD** - used to set a default command, can be overwritten from command line when docker container runs.
 
@@ -982,8 +971,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
   docker run ubuntu-sleeper 10 # 10 will be added to it - sleep 10
   ```
 
-  **Note** : If we are running the above command without specifying time-out (number) `docker run ubuntu-sleeper` this cause an 
-  error since its expecting an operand need to be passed. To avoid that following example can be used.
+  **Note** : If we are running the above command without specifying time-out (number) `docker run ubuntu-sleeper` this cause an error since its expecting an operand need to be passed. To avoid that following example can be used.
 
   Ex:
   ```
@@ -1006,8 +994,7 @@ or logs of the server) inside the container will lost. To avoid such scenario, d
 
   <p>
 
-  Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your
-  application’s services. Then, with a single command, you create and start all the services from your configuration.
+  Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
 
   Template:
 
