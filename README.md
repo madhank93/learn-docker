@@ -12,23 +12,24 @@
 
 ![compatibility_dependency_issue](/img/compatibility_dependency_issue.jpg)
 
-* To avoid compatibility issues with an underlying OS or between the services & libraries dependencies with the OS. (So no more - It works on my machine!)
+- To avoid compatibility issues with an underlying OS or between the services & libraries dependencies with the OS. (So no more - It works on my machine!)
 
-* To reduce local development environment setup time.
+- To reduce local development environment setup time.
 
-* Whenever your app needs to go through multiple phases dev/test/uat/prod (to operate as same on all the platforms).
+- Whenever your app needs to go through multiple phases dev/test/uat/prod (to operate as same on all the platforms).
 
-* When you want to adopt a microservices architecture.
+- When you want to adopt a microservices architecture.
 
 ## What can docker do ?
 
 ![docker_ability](/img/docker_ability.jpg)
 
-* Containerize an applications
+- Containerize an applications
 
-* Isolates apps from each other
+- Isolates apps from each other
 
-* Run each service with its own dependencies in separate containers
+- Run each service with its own dependencies in separate containers
+
 ## What are containers and images ?
 
 **Container** allow a developer to package up an application with all of the parts it needs, such as libraries and other dependencies, and deploy it as one package. Its decouples the OS from the application dependencies and the code. It is a completely isolated environment with their own processes, network interfaces and their own mounts except they all share the same OS kernel.
@@ -44,24 +45,24 @@ An **image** is a package or a template, it is used to create one or more contai
 
 ## How does docker works ?
 
-![docker-engine](/img/docker-engine-components-flow.png) 
+![docker-engine](/img/docker-engine-components-flow.png)
 
 <img src="https://github.com/madhank93/learn_docker/blob/master/img/dokcer_client_server.png" width="500" height="500">
 
 Docker Engine is a client-server application with these major components:
 
-* A server which is a type of long-running program called a daemon process (the dockerd command).
+- A server which is a type of long-running program called a daemon process (the dockerd command).
 
-* A REST API which specifies interfaces that programs can use to talk to the daemon and instruct it what to do.
+- A REST API which specifies interfaces that programs can use to talk to the daemon and instruct it what to do.
 
-* A command line interface (CLI) client (the docker command).
+- A command line interface (CLI) client (the docker command).
 
 The CLI uses the Docker REST API to control or interact with the Docker daemon through scripting or direct CLI commands. Many other Docker applications use the underlying API and CLI. The daemon creates and manages Docker objects, such as images, containers, networks, and volumes.
 
 ## List of Docker objects
 
-
 Management Commands:
+
 ```
 app*        Docker App (Docker Inc., v0.9.1-beta3)
 builder     Manage builds
@@ -91,6 +92,7 @@ Old way: docker <command> (options)
 ```
 
 Example:
+
 ```
 New way - docker container run
 Old way - docker run
@@ -123,6 +125,7 @@ docker version
 ```docker
 docker info
 ```
+
   </p>
 
 </details>
@@ -197,6 +200,7 @@ docker images
 ```
 
 Result:
+
 ```
 REPOSITORY              TAG       IMAGE ID       CREATED        SIZE
 nginx                   latest    f6d0b4767a6c   2 weeks ago    133MB
@@ -206,7 +210,7 @@ nginx                   latest    f6d0b4767a6c   2 weeks ago    133MB
 
 </details>
 
-----
+---
 
 <details>
 
@@ -228,14 +232,14 @@ docker container start nginx
 
 #### run vs start
 
-`run` always starts a *new* container;
-      if the image is not locally available, it automatically pulls the image and starts running it. 
+`run` always starts a _new_ container;
+if the image is not locally available, it automatically pulls the image and starts running it.
 
 `start` starts an existing stopped one
 
 </details>
 
------
+---
 
 <details>
 
@@ -255,16 +259,15 @@ Example:
 docker container run --publish 4000:80 nginx
 ```
 
-
 **On execution:**
 
-* Looks for that image locally in image cache, does not find anything
-* Then looks for the image in remote repository (default - docker hub)
-* Downloads the latest version by default
-* Creates a container based on that image
-* Opened port 4000 port on the host IP
-* Routes that traffic to container IP, port 80
-* Go to localhost:4000 in the browser to see the nginx up and running
+- Looks for that image locally in image cache, does not find anything
+- Then looks for the image in remote repository (default - docker hub)
+- Downloads the latest version by default
+- Creates a container based on that image
+- Opened port 4000 port on the host IP
+- Routes that traffic to container IP, port 80
+- Go to localhost:4000 in the browser to see the nginx up and running
 
 `--publish` or `-p` to map a host port to a running container port
 
@@ -382,7 +385,7 @@ docker container run --publish 4000:80 -d nginx
   
   <summary> 12. How to give docker container a name ? </summary>
 
-  <p> 
+  <p>
 
 Syntax:
 
@@ -460,7 +463,7 @@ docker container rm nginx
 
   <p>
 
-* To force remove the container(even if it is running)
+- To force remove the container(even if it is running)
 
 Syntax:
 
@@ -477,7 +480,7 @@ docker container rm -f nginx
 
 `-f` or `--force` force removes the container
 
-*Note* : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
+_Note_ : You cannot remove the running container. Either you can stop the container and remove it or force remove the container
 
   </p>
 
@@ -517,7 +520,7 @@ docker container run -d --name server -p 8080:80 httpd
 docker container run -d --name proxy -p 80:80 nginx
 ```
 
-*Note* : Just because the containers(httpd, and nginx) are both listening on port 80 inside (the right number), there is no conflict because on the host they are published on 80, and 8080 separately (the left number).
+_Note_ : Just because the containers(httpd, and nginx) are both listening on port 80 inside (the right number), there is no conflict because on the host they are published on 80, and 8080 separately (the left number).
 
 ![host_container_port](/img/host_container_port.png)
 
@@ -559,21 +562,21 @@ docker container exec -it <container-id-or-name> <command-name>
 
 1. Getting a shell inside a new container (starts new container interactively)
 
-  ```docker
-  docker container run -it --name proxy nginx bash
-  ```
+```docker
+docker container run -it --name proxy nginx bash
+```
 
-  `i` interactive (keeping session open to receive input)
+`i` interactive (keeping session open to receive input)
 
-  `t` pseudo-tty (simulates a real terminal)
+`t` pseudo-tty (simulates a real terminal)
 
-  `bash` run with `-it` to give a running terminal inside the container
+`bash` run with `-it` to give a running terminal inside the container
 
 2. Getting a shell inside a existing container (run additional command in existing container)
 
-  ```docker
-  docker container exec -it <container-id-or-name> bash
-  ```
+```docker
+docker container exec -it <container-id-or-name> bash
+```
 
   </p>
 
@@ -603,7 +606,7 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" <container-
 
 </details>
 
-----
+---
 
 <details>
 
@@ -611,7 +614,7 @@ docker container inspect --format "{{ .NetworkSettings.IPAddress }}" <container-
 
    <p>
 
-Images are composed of layers. Each layer is a set of filesystem changes. Images are created using a dockerfile and every line in a dockerfile results in creating a new layer. 
+Images are composed of layers. Each layer is a set of filesystem changes. Images are created using a dockerfile and every line in a dockerfile results in creating a new layer.
 
 Every layer gets its own unique SHA number that helps system to identify if that layer has already exists (so that we don't have to download the layers that already exists). This guarantees layer are not stored more than one.
 
@@ -633,7 +636,7 @@ docker image history redis
 
 </details>
 
-----
+---
 
 <details>
 
@@ -659,7 +662,7 @@ docker image tag alpine madhank93/alpine:1.0.12
 
 </details>
 
-----
+---
 
 <details>
 
@@ -682,7 +685,7 @@ docker image build -t <image-name:tag> .
 ```docker
 docker image build -f <path-of-the-dockerfile> -t <image-name> .
 
-or 
+or
 
 docker image build --file <path-of-the-dockerfile> -t <image-name:tag> .
 ```
@@ -699,7 +702,7 @@ docker image build -f docker-files/creating_img/Dockerfile -t custom_python_img:
 
 </details>
 
-----
+---
 
 <details>
 
@@ -721,7 +724,7 @@ Output:
 
 </details>
 
-----
+---
 
 <details>
 
@@ -743,7 +746,7 @@ docker system prune # will clean up everything
 
 </details>
 
-----
+---
 
 <details>
 
@@ -755,7 +758,7 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
 </details>
 
-----
+---
 
 <details>
 
@@ -763,28 +766,26 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
  <p>
 
-  ![types_of_mount](/img/types-of-mounts.png)
+![types_of_mount](/img/types-of-mounts.png)
 
-  There is 2 ways,
+There is 2 ways,
 
     1. Data volumes - are stored in a part of the host filesystem which is managed by Docker (/var/lib/docker/volumes/ on Linux. Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
 
-       a. Anonymous volume : It can be difficult to refer to this volume later, since docker gives them a random name. 
+       a. Anonymous volume : It can be difficult to refer to this volume later, since docker gives them a random name.
        b. Named volumes : It lot more easier to refer, since we are naming the volumes.
 
-  ![named_and_anonymous_volume](/img/listing_volume.png)
+![named_and_anonymous_volume](/img/listing_volume.png)
 
     2. Bind mounting - may be stored anywhere on the host system. They may even be important system files or directories.Non-Docker processes on the Docker host or a Docker container can modify them at any time.
 
-  
-
-  **Note**: For more info refer to [Manage data in docker](https://docs.docker.com/storage/)
+**Note**: For more info refer to [Manage data in docker](https://docs.docker.com/storage/)
 
   </p>
 
 </details>
 
-----
+---
 
 <details>
 
@@ -792,39 +793,39 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
 <p>
 
-  1. Anonymous volume:
-     
-  Syntax:
+1. Anonymous volume:
 
-  ```docker
-    docker container run -v <path-in-container> <image-id-or-name>
-  ```
+Syntax:
 
-  Example:
+```docker
+  docker container run -v <path-in-container> <image-id-or-name>
+```
 
-  ```docker
-    docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /var/lib/mysql mysql
-  ```
+Example:
 
-  2. Named volume:
+```docker
+  docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v /var/lib/mysql mysql
+```
 
-  Syntax:
+2. Named volume:
 
-  ```docker
-    docker container run -v <volume-name>:<path-in-container> <image-id-or-name>
-  ```
+Syntax:
 
-  Example:
+```docker
+  docker container run -v <volume-name>:<path-in-container> <image-id-or-name>
+```
 
-  ```docker
-    docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql  mysql
-  ```
+Example:
+
+```docker
+  docker container run -d --name mysql -e MYSQL_ALLOW_EMPTY_PASSWORD=True -v mysql-db:/var/lib/mysql  mysql
+```
 
   </p>
 
 </details>
 
-----
+---
 
 <details>
 
@@ -832,24 +833,23 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Syntax:
+Syntax:
 
-  ```docker
-    docker container run -v <path-in-host>:<path-in-container> <image-id-or-name>
-  ```
-  
+```docker
+  docker container run -v <path-in-host>:<path-in-container> <image-id-or-name>
+```
 
-  Example:
+Example:
 
-  ```docker
-    docker container run -p 8180:80 -d -v /Users/madhan/Desktop/nginx-logs:/var/log/nginx nginx
-  ```
+```docker
+  docker container run -p 8180:80 -d -v /Users/madhan/Desktop/nginx-logs:/var/log/nginx nginx
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -857,19 +857,19 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Example: 
+Example:
 
-  ```docker
-  docker container run -d --name postgres -v postgres-db:/var/lib/postgresql/data postgres:9.6.1 # initial version
+```docker
+docker container run -d --name postgres -v postgres-db:/var/lib/postgresql/data postgres:9.6.1 # initial version
 
-  docker container run -d --name postgres2 -v postgres-db:/var/lib/postgresql/data postgres:9.6.2 # upgraded to newer version
-  ```
+docker container run -d --name postgres2 -v postgres-db:/var/lib/postgresql/data postgres:9.6.2 # upgraded to newer version
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -877,17 +877,17 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Syntax:
+Syntax:
 
-  ```docker
-  docker network ls
-  ```
+```docker
+docker network ls
+```
 
   </p>
 
 </details>
 
-----
+---
 
 <details>
 
@@ -895,7 +895,7 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  There are 3 default networks available. They are,
+There are 3 default networks available. They are,
 
 ![docker_network](/img/docker_networks.png)
 
@@ -907,7 +907,7 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
 </details>
 
-----
+---
 
 <details>
 
@@ -915,13 +915,13 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
- When two containers are connected to the same user-defined bridge network, one container is able to connect to an another container by using its container/service name (as the hostname). When you run containers using docker-compose, it will automatically creates one.
+When two containers are connected to the same user-defined bridge network, one container is able to connect to an another container by using its container/service name (as the hostname). When you run containers using docker-compose, it will automatically creates one.
 
   </p>
 
 </details>
 
-----
+---
 
 <details>
 
@@ -929,15 +929,15 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Dockerfile - is used to create an docker image out of it
+Dockerfile - is used to create an docker image out of it
 
-  Docker-compose yml - it is used to easily run the (multi)containers, docker commands are easily maintained.
-  
+Docker-compose yml - it is used to easily run the (multi)containers, docker commands are easily maintained.
+
   </p>
 
 </details>
 
-----
+---
 
 <details>
 
@@ -945,48 +945,51 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  **RUN** - executes command(s) in a new layer and creates a new intermediate image on top of an existing image. It is always recommended to chain all the RUN commands,to avoid adding more layers to the image.
+**RUN** - executes command(s) in a new layer and creates a new intermediate image on top of an existing image. It is always recommended to chain all the RUN commands,to avoid adding more layers to the image.
 
-  **CMD** - used to set a default command, can be overwritten from command line when docker container runs.
+**CMD** - used to set a default command, can be overwritten from command line when docker container runs.
 
-  Ex:
-  ```
-  FROM ubuntu
-  CMD sleep 5
-  ```
+Ex:
 
-  ```docker
-  docker run ubuntu-sleeper sleep 10 # sleep 5 will be replaced with - sleep 10
-  ```
+```
+FROM ubuntu
+CMD sleep 5
+```
 
-  **ENTRYPOINT** - It is similar to the CMD, but it will not ignore additional parameters,rather it will get appended.
+```docker
+docker run ubuntu-sleeper sleep 10 # sleep 5 will be replaced with - sleep 10
+```
 
-  Ex:
-  ```
-  FROM ubuntu
-  ENTRYPOINT ["sleep"]
-  ```
+**ENTRYPOINT** - It is similar to the CMD, but it will not ignore additional parameters,rather it will get appended.
 
-  ```docker
-  docker run ubuntu-sleeper 10 # 10 will be added to it - sleep 10
-  ```
+Ex:
 
-  **Note** : If we are running the above command without specifying time-out (number) `docker run ubuntu-sleeper` this cause an error since its expecting an operand need to be passed. To avoid that following example can be used.
+```
+FROM ubuntu
+ENTRYPOINT ["sleep"]
+```
 
-  Ex:
-  ```
-  FROM ubuntu
-  ENTRYPOINT ["sleep"]
-  CMD["5"]
-  ```
+```docker
+docker run ubuntu-sleeper 10 # 10 will be added to it - sleep 10
+```
 
-  Now if the user did not specify the time-out, by default it wait for 5 secs. If it specified it will be replaced.
+**Note** : If we are running the above command without specifying time-out (number) `docker run ubuntu-sleeper` this cause an error since its expecting an operand need to be passed. To avoid that following example can be used.
+
+Ex:
+
+```
+FROM ubuntu
+ENTRYPOINT ["sleep"]
+CMD["5"]
+```
+
+Now if the user did not specify the time-out, by default it wait for 5 secs. If it specified it will be replaced.
 
   </p>
 
 </details>
 
-----
+---
 
 <details>
 
@@ -994,52 +997,52 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
+Compose is a tool for defining and running multi-container Docker applications. With Compose, you use a YAML file to configure your application’s services. Then, with a single command, you create and start all the services from your configuration.
 
-  Template:
+Template:
 
-  ```YAML
-  versions: '3.1'
-    services:
-      service_name1: 
-        image: 
-        command:
-        environment:
-        volumes:
-      service_name2:
-        image:
-        command:
-        environment:
-        volumes:
-      
+```YAML
+versions: '3.1'
+  services:
+    service_name1:
+      image:
+      command:
+      environment:
+      volumes:
+    service_name2:
+      image:
+      command:
+      environment:
       volumes:
 
-      networks:
-  ```
+    volumes:
 
-  `docker-compose.yml`
+    networks:
+```
 
-  ```YAML
-  version: '3'
-  services:
-    web:
-      image: nginx
-    db:
-      image: mysql
-      ports:
-      - "3306:3306"
-      environment:
-      - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-      - MYSQL_DATABASE=demodb
-  ```
+`docker-compose.yml`
+
+```YAML
+version: '3'
+services:
+  web:
+    image: nginx
+  db:
+    image: mysql
+    ports:
+    - "3306:3306"
+    environment:
+    - MYSQL_ROOT_PASSWORD=password
+    - MYSQL_USER=user
+    - MYSQL_PASSWORD=password
+    - MYSQL_DATABASE=demodb
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -1047,18 +1050,18 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Syntax:
+Syntax:
 
-  ```docker
-  docker-compose up # if the docker-compose.yml is located at the root level
-  docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml up # if the docker-compose yml file is located at different location 
-  ```
+```docker
+docker-compose up # if the docker-compose.yml is located at the root level
+docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml up # if the docker-compose yml file is located at different location
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -1066,18 +1069,18 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Syntax:
+Syntax:
 
-  ```docker
-  docker-compose down # if the docker-compose.yml is located at the root level
-  docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml down # if the docker-compose yml file is located at different location 
-  ```
+```docker
+docker-compose down # if the docker-compose.yml is located at the root level
+docker-compose -f docker-files/docker-compose-ex-1/docker-compose.yml down # if the docker-compose yml file is located at different location
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -1091,7 +1094,7 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
 </details>
 
------
+---
 
 <details>
 
@@ -1099,17 +1102,17 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Syntax:
+Syntax:
 
-  ```docker
-  docker-compose down -v
-  ```
+```docker
+docker-compose down -v
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -1117,20 +1120,20 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  Refer to the `docker-files/docker-compose-ex-3/docker-compose.yml` file.
+Refer to the `docker-files/docker-compose-ex-3/docker-compose.yml` file.
 
-  `cd into that folder`
+`cd into that folder`
 
-  ```docker
-  docker-compose up # to start it
-  docker-compose down --rmi local # to stop and delete the containers along with it
-  ```
+```docker
+docker-compose up # to start it
+docker-compose down --rmi local # to stop and delete the containers along with it
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -1138,15 +1141,15 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  ```docker
-  docker images -f dangling=true
-  ```
+```docker
+docker images -f dangling=true
+```
 
   </p>
 
 </details>
 
------
+---
 
 <details>
 
@@ -1154,49 +1157,50 @@ Docker containers are ephemeral (lasts only for a short period of time), once th
 
   <p>
 
-  ```docker
-  docker container ls -a -f status=exited
-  ```
+```docker
+docker container ls -a -f status=exited
+```
 
   </p>
 
 </details>
 
------
+---
 
 ## Resources
 
 ### Interactive
 
-* [Katacoda docker](https://www.katacoda.com/courses/container-runtimes)
+- [Katacoda docker](https://www.katacoda.com/courses/container-runtimes)
 
-* [Play with docker](https://labs.play-with-docker.com/)
+- [Play with docker](https://labs.play-with-docker.com/)
 
 ### Sketch notes series
 
-* [Docker in sketch notes Series](https://dev.to/aurelievache/series/8105)
-  
+- [Docker in sketch notes Series](https://dev.to/aurelievache/series/8105)
+
 ### Cheat sheet
-* [Docker cheat sheet](http://dockerlabs.collabnix.com/docker/cheatsheet/)
+
+- [Docker cheat sheet](http://dockerlabs.collabnix.com/docker/cheatsheet/)
 
 ### Video series
 
-* [Docker Tutorial for Beginners - TechWorld with Nana](https://www.youtube.com/watch?v=3c-iBn73dDE&ab_channel=TechWorldwithNana)
+- [Docker Tutorial for Beginners - TechWorld with Nana](https://www.youtube.com/watch?v=3c-iBn73dDE&ab_channel=TechWorldwithNana)
 
-* [Docker Tutorial for Beginners - 	Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org)
+- [Docker Tutorial for Beginners - Mmumshad](https://www.youtube.com/watch?v=fqMOX6JJhGo&ab_channel=freeCodeCamp.org)
 
-* [Udemy - Docker tutorial - Bret Fisher](https://www.udemy.com/course/docker-mastery/)
+- [Udemy - Docker tutorial - Bret Fisher](https://www.udemy.com/course/docker-mastery/)
 
 ### Articles
 
-* [Docker handbook](https://www.freecodecamp.org/news/the-docker-handbook/)
+- [Docker handbook](https://www.freecodecamp.org/news/the-docker-handbook/)
 
-* <https://docs.docker.com/get-started/>
+- <https://docs.docker.com/get-started/>
 
-* <https://opensource.com/resources/what-docker>
+- <https://opensource.com/resources/what-docker>
 
-* <https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/docker-terminology>
+- <https://docs.microsoft.com/en-us/dotnet/architecture/microservices/container-docker-introduction/docker-terminology>
 
-* <https://www.redhat.com/en/topics/containers/what-is-docker>
+- <https://www.redhat.com/en/topics/containers/what-is-docker>
 
-* <https://github.com/collabnix/dockerlabs>
+- <https://github.com/collabnix/dockerlabs>
