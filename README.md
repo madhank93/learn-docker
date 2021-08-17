@@ -1167,6 +1167,28 @@ docker container ls -a -f status=exited
 
 ---
 
+<details>
+
+<summary> 44. How to override entry point on running docker ?</summary>
+
+<p>
+
+Syntax:
+
+```console
+docker run -it --entrypoint /bin/bash <docker-image>
+```
+
+Example:
+
+```console
+docker run -it --entrypoint /bin/bash nginx
+```
+
+</p>
+
+</details>
+
 ## Resources
 
 ### Interactive
