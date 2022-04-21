@@ -1218,6 +1218,8 @@ docker run -it --entrypoint /bin/bash nginx
 - [Containers and Kubernetes](https://iximiuz.com/en/)
 
 - [Docker handbook](https://www.freecodecamp.org/news/the-docker-handbook/)
+    
+- [Docker Curriculum](https://github.com/prakhar1989/docker-curriculum) 
 
 - <https://docs.docker.com/get-started/>
 
