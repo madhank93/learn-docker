@@ -1,6 +1,6 @@
 # Learn Docker
 
-## History
+## Evolution
 
 ![history](/img/history.png)
 
